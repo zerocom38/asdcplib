@@ -726,6 +726,17 @@ ASDCP::IntegrityPack::TestValues(const ASDCP::FrameBuffer& FB, const byte_t* Ass
   return result;
 }
 
+#else 
+
+ASDCP::AESDecContext::AESDecContext(){}
+ASDCP::AESDecContext::~AESDecContext(){}
+
+ASDCP::AESEncContext::AESEncContext(){}
+ASDCP::AESEncContext::~AESEncContext(){}
+
+ASDCP::HMACContext::HMACContext(){}
+ASDCP::HMACContext::~HMACContext(){}
+
 #endif //HAVE_OPENSSL
 
 //
