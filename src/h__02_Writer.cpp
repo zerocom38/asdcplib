@@ -57,7 +57,7 @@ Result_t
 AS_02::MXF::AS02IndexWriterVBR::WriteToFile(Kumu::FileWriter& Writer)
 {
   assert(m_Dict);
-  ASDCP::FrameBuffer index_body_buffer;
+  ASDCP::BaseFrameBuffer index_body_buffer;
   ui32_t index_body_size = (ui32_t)m_PacketList->m_List.size() * MaxIndexSegmentSize; // segment-count * max-segment-size
   Result_t result = index_body_buffer.Capacity(index_body_size); 
   ui64_t start_position = 0;
@@ -75,7 +75,7 @@ AS_02::MXF::AS02IndexWriterVBR::WriteToFile(Kumu::FileWriter& Writer)
       InterchangeObject* object = *pl_i;
       object->m_Lookup = m_Lookup;
 
-      ASDCP::FrameBuffer WriteWrapper;
+      ASDCP::BaseFrameBuffer WriteWrapper;
       WriteWrapper.SetData(index_body_buffer.Data() + index_body_buffer.Size(),
 			   index_body_buffer.Capacity() - index_body_buffer.Size());
       result = object->WriteToBuffer(WriteWrapper);
@@ -193,7 +193,7 @@ AS_02::h__AS02WriterFrame::~h__AS02WriterFrame() {}
 
 //
 Result_t
-AS_02::h__AS02WriterFrame::WriteEKLVPacket(const ASDCP::FrameBuffer& FrameBuf,const byte_t* EssenceUL,
+AS_02::h__AS02WriterFrame::WriteEKLVPacket(const ASDCP::BaseFrameBuffer& FrameBuf,const byte_t* EssenceUL,
 					   const ui32_t& MinEssenceElementBerLength,
 					   AESEncContext* Ctx, HMACContext* HMAC)
 {
@@ -251,7 +251,7 @@ Result_t
 AS_02::MXF::AS02IndexWriterCBR::WriteToFile(Kumu::FileWriter& Writer)
 {
   assert(m_Dict);
-  ASDCP::FrameBuffer index_body_buffer;
+  ASDCP::BaseFrameBuffer index_body_buffer;
   ui32_t   index_body_size = MaxIndexSegmentSize; // segment-count * max-segment-size
   Result_t result = index_body_buffer.Capacity(index_body_size); 
 
@@ -264,7 +264,7 @@ AS_02::MXF::AS02IndexWriterCBR::WriteToFile(Kumu::FileWriter& Writer)
   m_CurrentSegment->EditUnitByteCount = m_SampleSize;
   AddChildObject(m_CurrentSegment);
 
-  ASDCP::FrameBuffer WriteWrapper;
+  ASDCP::BaseFrameBuffer WriteWrapper;
   WriteWrapper.SetData(index_body_buffer.Data() + index_body_buffer.Size(),
 		       index_body_buffer.Capacity() - index_body_buffer.Size());
 

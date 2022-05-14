@@ -122,7 +122,7 @@ class ASDCP::ATMOS::MXFReader::h__Reader : public ASDCP::h__ASDCPReader
 
   virtual ~h__Reader() {}
   Result_t    OpenRead(const std::string&);
-  Result_t    ReadFrame(ui32_t, FrameBuffer&, AESDecContext*, HMACContext*);
+  Result_t    ReadFrame(ui32_t, BaseFrameBuffer&, AESDecContext*, HMACContext*);
   Result_t    MD_to_DCData_DDesc(ASDCP::DCData::DCDataDescriptor& DDesc);
   Result_t    MD_to_Atmos_ADesc(ATMOS::AtmosDescriptor& ADesc);
 };
@@ -237,7 +237,7 @@ ASDCP::ATMOS::MXFReader::h__Reader::OpenRead(const std::string& filename)
 
 //
 ASDCP::Result_t
-ASDCP::ATMOS::MXFReader::h__Reader::ReadFrame(ui32_t FrameNum, FrameBuffer& FrameBuf,
+ASDCP::ATMOS::MXFReader::h__Reader::ReadFrame(ui32_t FrameNum, BaseFrameBuffer& FrameBuf,
 					      AESDecContext* Ctx, HMACContext* HMAC)
 {
   if ( ! m_File->IsOpen() )
@@ -416,7 +416,7 @@ class ASDCP::ATMOS::MXFWriter::h__Writer : public ASDCP::h__ASDCPWriter
 
   Result_t OpenWrite(const std::string&, ui32_t HeaderSize, const AtmosDescriptor& ADesc);
   Result_t SetSourceStream(const DCData::DCDataDescriptor&, const byte_t*, const std::string&, const std::string&);
-  Result_t WriteFrame(const FrameBuffer&, AESEncContext* = 0, HMACContext* = 0);
+  Result_t WriteFrame(const BaseFrameBuffer&, AESEncContext* = 0, HMACContext* = 0);
   Result_t Finalize();
   Result_t DCData_DDesc_to_MD(ASDCP::DCData::DCDataDescriptor& DDesc);
   Result_t Atmos_ADesc_to_MD(const AtmosDescriptor& ADesc);
@@ -546,7 +546,7 @@ ASDCP::ATMOS::MXFWriter::h__Writer::SetSourceStream(ASDCP::DCData::DCDataDescrip
 
 //
 ASDCP::Result_t
-ASDCP::ATMOS::MXFWriter::h__Writer::WriteFrame(const FrameBuffer& FrameBuf,
+ASDCP::ATMOS::MXFWriter::h__Writer::WriteFrame(const BaseFrameBuffer& FrameBuf,
 					       ASDCP::AESEncContext* Ctx, ASDCP::HMACContext* HMAC)
 {
   Result_t result = RESULT_OK;

@@ -318,7 +318,7 @@ ASDCP::h__ASDCPWriter::WriteASDCPHeader(const std::string& PackageLabel, const U
 
 //
 Result_t
-ASDCP::h__ASDCPWriter::WriteEKLVPacket(const ASDCP::FrameBuffer& FrameBuf,const byte_t* EssenceUL,
+ASDCP::h__ASDCPWriter::WriteEKLVPacket(const ASDCP::BaseFrameBuffer& FrameBuf,const byte_t* EssenceUL,
 				       const ui32_t& MinEssenceElementBerLength,	       
 				       AESEncContext* Ctx, HMACContext* HMAC)
 {
@@ -381,8 +381,8 @@ ASDCP::h__ASDCPWriter::WriteASDCPFooter()
 // standard method of writing a plaintext or encrypted frame
 Result_t
 ASDCP::Write_EKLV_Packet(Kumu::FileWriter& File, const ASDCP::Dictionary& Dict, const MXF::OP1aHeader&,
-			 const ASDCP::WriterInfo& Info, ASDCP::FrameBuffer& CtFrameBuf, ui32_t& FramesWritten,
-			 ui64_t & StreamOffset, const ASDCP::FrameBuffer& FrameBuf, const byte_t* EssenceUL,
+			 const ASDCP::WriterInfo& Info, ASDCP::BaseFrameBuffer& CtFrameBuf, ui32_t& FramesWritten,
+			 ui64_t & StreamOffset, const ASDCP::BaseFrameBuffer& FrameBuf, const byte_t* EssenceUL,
 			 const ui32_t& MinEssenceElementBerLength,
 			 AESEncContext* Ctx, HMACContext* HMAC)
 {

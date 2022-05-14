@@ -284,12 +284,12 @@ AS_02::IAB::MXFWriter::WriteFrame(const ui8_t* frame, ui32_t sz) {
   return result;
 }
 
-Result_t AS_02::IAB::MXFWriter::WriteFrame(const ASDCP::FrameBuffer& frame) {
+Result_t AS_02::IAB::MXFWriter::WriteFrame(const ASDCP::BaseFrameBuffer& frame) {
   return WriteFrame(frame.RoData(), frame.Size());
 }
 
 Result_t
-AS_02::IAB::MXFWriter::AddDmsGenericPartUtf8Text(const ASDCP::FrameBuffer& FrameBuf, ASDCP::AESEncContext* Ctx,
+AS_02::IAB::MXFWriter::AddDmsGenericPartUtf8Text(const ASDCP::BaseFrameBuffer& FrameBuf, ASDCP::AESEncContext* Ctx,
                           ASDCP::HMACContext* HMAC, const std::string& trackDescription, const std::string& dataDescription)
 {
   if ( m_Writer.empty() )
@@ -506,7 +506,7 @@ Result_t AS_02::IAB::MXFReader::GetFrameCount(ui32_t& frameCount) const {
 
 /* Anonymous namespace with ReadFrame helpers */
 namespace {
-  bool checkFrameCapacity(ASDCP::FrameBuffer& frame, size_t size, bool reallocate_if_needed) {
+  bool checkFrameCapacity(ASDCP::BaseFrameBuffer& frame, size_t size, bool reallocate_if_needed) {
 
     if (frame.Capacity() < size) {
       if (!reallocate_if_needed) {
@@ -519,7 +519,7 @@ namespace {
   }
 
   Result_t
-  ReadFrameImpl(ui32_t frame_number, ASDCP::FrameBuffer& frame, ReaderState_t& reader_state, AS_02::h__AS02Reader *reader, bool reallocate_if_needed) {
+  ReadFrameImpl(ui32_t frame_number, ASDCP::BaseFrameBuffer& frame, ReaderState_t& reader_state, AS_02::h__AS02Reader *reader, bool reallocate_if_needed) {
     assert(reader);
     /* are we already running */
 
@@ -645,13 +645,13 @@ Result_t AS_02::IAB::MXFReader::ReadFrame(ui32_t frame_number,
 }
 
 Result_t AS_02::IAB::MXFReader::ReadFrame(ui32_t frame_number,
-                                          ASDCP::FrameBuffer &frame) {
+                                          ASDCP::BaseFrameBuffer &frame) {
   return ReadFrameImpl(frame_number, frame, this->m_Reader->m_State, this->m_Reader,
                        false);
 }
 
 Result_t
-AS_02::IAB::MXFReader::ReadGenericStreamPartitionPayload(const ui32_t SID, ASDCP::FrameBuffer& frame_buf)
+AS_02::IAB::MXFReader::ReadGenericStreamPartitionPayload(const ui32_t SID, ASDCP::BaseFrameBuffer& frame_buf)
 {
   if ( m_Reader && m_Reader->m_File->IsOpen() )
     {

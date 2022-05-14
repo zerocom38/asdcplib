@@ -267,7 +267,7 @@ Identification::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-Identification::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+Identification::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -355,7 +355,7 @@ ContentStorage::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ContentStorage::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ContentStorage::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -450,7 +450,7 @@ EssenceContainerData::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-EssenceContainerData::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+EssenceContainerData::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -621,7 +621,7 @@ MaterialPackage::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-MaterialPackage::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+MaterialPackage::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -703,7 +703,7 @@ SourcePackage::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-SourcePackage::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+SourcePackage::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -865,7 +865,7 @@ StaticTrack::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-StaticTrack::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+StaticTrack::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -951,7 +951,7 @@ Track::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-Track::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+Track::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1105,7 +1105,7 @@ Sequence::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-Sequence::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+Sequence::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1195,7 +1195,7 @@ SourceClip::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-SourceClip::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+SourceClip::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1285,7 +1285,7 @@ TimecodeComponent::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TimecodeComponent::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TimecodeComponent::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1466,7 +1466,7 @@ FileDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-FileDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+FileDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1609,7 +1609,7 @@ GenericSoundEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-GenericSoundEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+GenericSoundEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -1713,7 +1713,7 @@ WaveAudioDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-WaveAudioDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+WaveAudioDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2081,7 +2081,7 @@ GenericPictureEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-GenericPictureEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+GenericPictureEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2208,7 +2208,7 @@ RGBAEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-RGBAEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+RGBAEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2391,7 +2391,7 @@ JPEG2000PictureSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-JPEG2000PictureSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+JPEG2000PictureSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2549,7 +2549,7 @@ CDCIEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-CDCIEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+CDCIEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2717,7 +2717,7 @@ MPEG2VideoDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-MPEG2VideoDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+MPEG2VideoDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2830,7 +2830,7 @@ DMSegment::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-DMSegment::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+DMSegment::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -2912,7 +2912,7 @@ CryptographicFramework::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-CryptographicFramework::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+CryptographicFramework::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3010,7 +3010,7 @@ CryptographicContext::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-CryptographicContext::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+CryptographicContext::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3097,7 +3097,7 @@ DescriptiveFramework::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-DescriptiveFramework::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+DescriptiveFramework::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3184,7 +3184,7 @@ DescriptiveObject::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-DescriptiveObject::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+DescriptiveObject::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3266,7 +3266,7 @@ GenericDataEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-GenericDataEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+GenericDataEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3392,7 +3392,7 @@ TimedTextDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TimedTextDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TimedTextDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3482,7 +3482,7 @@ TimedTextResourceSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TimedTextResourceSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TimedTextResourceSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3560,7 +3560,7 @@ StereoscopicPictureSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-StereoscopicPictureSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+StereoscopicPictureSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3638,7 +3638,7 @@ ContainerConstraintsSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ContainerConstraintsSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ContainerConstraintsSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3720,7 +3720,7 @@ NetworkLocator::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-NetworkLocator::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+NetworkLocator::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3909,7 +3909,7 @@ MCALabelSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-MCALabelSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+MCALabelSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -3996,7 +3996,7 @@ AudioChannelLabelSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-AudioChannelLabelSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+AudioChannelLabelSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4083,7 +4083,7 @@ SoundfieldGroupLabelSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-SoundfieldGroupLabelSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+SoundfieldGroupLabelSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4161,7 +4161,7 @@ GroupOfSoundfieldGroupsLabelSubDescriptor::InitFromBuffer(const byte_t* p, ui32_
 
 //
 ASDCP::Result_t
-GroupOfSoundfieldGroupsLabelSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+GroupOfSoundfieldGroupsLabelSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4239,7 +4239,7 @@ DCDataDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-DCDataDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+DCDataDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4317,7 +4317,7 @@ PrivateDCDataDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-PrivateDCDataDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+PrivateDCDataDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4415,7 +4415,7 @@ DolbyAtmosSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-DolbyAtmosSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+DolbyAtmosSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4538,7 +4538,7 @@ ACESPictureSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ACESPictureSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ACESPictureSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4666,7 +4666,7 @@ TargetFrameSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TargetFrameSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TargetFrameSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4753,7 +4753,7 @@ TextBasedDMFramework::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TextBasedDMFramework::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TextBasedDMFramework::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4852,7 +4852,7 @@ TextBasedObject::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-TextBasedObject::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+TextBasedObject::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -4934,7 +4934,7 @@ GenericStreamTextBasedSet::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-GenericStreamTextBasedSet::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+GenericStreamTextBasedSet::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5016,7 +5016,7 @@ ISXDDataEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ISXDDataEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ISXDDataEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5106,7 +5106,7 @@ PHDRMetadataTrackSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-PHDRMetadataTrackSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+PHDRMetadataTrackSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5188,7 +5188,7 @@ PIMFDynamicMetadataDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-PIMFDynamicMetadataDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+PIMFDynamicMetadataDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5266,7 +5266,7 @@ IABEssenceDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-IABEssenceDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+IABEssenceDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5344,7 +5344,7 @@ IABSoundfieldLabelSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-IABSoundfieldLabelSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+IABSoundfieldLabelSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -5473,7 +5473,7 @@ JPEGXSPictureSubDescriptor::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-JPEGXSPictureSubDescriptor::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+JPEGXSPictureSubDescriptor::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }

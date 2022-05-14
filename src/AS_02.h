@@ -275,7 +275,7 @@ namespace AS_02
       // argument is present, the essence is encrypted prior to writing.
       // Fails if the file is not open, is finalized, or an operating system
       // error occurs.
-      Result_t WriteFrame(const ASDCP::FrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
+      Result_t WriteFrame(const ASDCP::BaseFrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
       
       // Closes the MXF file, writing the index and revised header.
       Result_t Finalize();
@@ -527,13 +527,13 @@ namespace AS_02
       // argument is present, the essence is encrypted prior to writing.
       // Fails if the file is not open, is finalized, or an operating system
       // error occurs.
-      Result_t WriteFrame(const ASDCP::FrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
+      Result_t WriteFrame(const ASDCP::BaseFrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
 
       // Writes an XML text document to the MXF file as per RP 2057. If the
       // optional AESEncContext argument is present, the document is encrypted
       // prior to writing. Fails if the file is not open, is finalized, or an
       // operating system error occurs.
-      Result_t AddDmsGenericPartUtf8Text(const ASDCP::FrameBuffer& frame_buffer, ASDCP::AESEncContext* enc = 0, ASDCP::HMACContext* hmac = 0);
+      Result_t AddDmsGenericPartUtf8Text(const ASDCP::BaseFrameBuffer& frame_buffer, ASDCP::AESEncContext* enc = 0, ASDCP::HMACContext* hmac = 0);
 
       // Closes the MXF file, writing the index and revised header.
       Result_t Finalize();
@@ -574,14 +574,14 @@ namespace AS_02
       // not NULL, the HMAC will be calculated (if the file supports it).
       // Returns RESULT_INIT if the file is not open, failure if the frame number is
       // out of range, or if optional decrypt or HAMC operations fail.
-      Result_t ReadFrame(ui32_t frame_number, ASDCP::FrameBuffer&,
+      Result_t ReadFrame(ui32_t frame_number, ASDCP::BaseFrameBuffer&,
 			 ASDCP::AESDecContext* = 0, ASDCP::HMACContext* = 0) const;
 
       // Reads a Generic Stream Partition payload. Returns RESULT_INIT if the file is
       // not open, or RESULT_FORMAT if the SID is not present in the  RIP, or if the
       // actual partition at ByteOffset does not have a matching BodySID value.
       // Encryption is not currently supported.
-      Result_t ReadGenericStreamPartitionPayload(ui32_t SID, ASDCP::FrameBuffer& FrameBuf);
+      Result_t ReadGenericStreamPartitionPayload(ui32_t SID, ASDCP::BaseFrameBuffer& FrameBuf);
   
       // Print debugging information to stream
       void     DumpHeaderMetadata(FILE* = 0) const;

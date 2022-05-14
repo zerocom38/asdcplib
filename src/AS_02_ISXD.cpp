@@ -60,7 +60,7 @@ public:
   virtual ~h__Reader() {}
 
   Result_t    OpenRead(const std::string& filename);
-  Result_t    ReadFrame(ui32_t, ASDCP::FrameBuffer&, AESDecContext*, HMACContext*);
+  Result_t    ReadFrame(ui32_t, ASDCP::BaseFrameBuffer&, AESDecContext*, HMACContext*);
 };
 
 //
@@ -98,7 +98,7 @@ AS_02::ISXD::MXFReader::h__Reader::OpenRead(const std::string& filename)
 
 //
 Result_t
-AS_02::ISXD::MXFReader::h__Reader::ReadFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+AS_02::ISXD::MXFReader::h__Reader::ReadFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 		      ASDCP::AESDecContext* Ctx, ASDCP::HMACContext* HMAC)
 {
   if ( ! m_File->IsOpen() )
@@ -192,7 +192,7 @@ AS_02::ISXD::MXFReader::Close() const
 
 //
 Result_t
-AS_02::ISXD::MXFReader::ReadFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+AS_02::ISXD::MXFReader::ReadFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 					   ASDCP::AESDecContext* Ctx, ASDCP::HMACContext* HMAC) const
 {
   if ( m_Reader && m_Reader->m_File->IsOpen() )
@@ -205,7 +205,7 @@ AS_02::ISXD::MXFReader::ReadFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
 
 //
 Result_t
-AS_02::ISXD::MXFReader::ReadGenericStreamPartitionPayload(const ui32_t SID, ASDCP::FrameBuffer& frame_buf)
+AS_02::ISXD::MXFReader::ReadGenericStreamPartitionPayload(const ui32_t SID, ASDCP::BaseFrameBuffer& frame_buf)
 {
   if ( m_Reader && m_Reader->m_File->IsOpen() )
     {
@@ -274,7 +274,7 @@ public:
 		     const AS_02::IndexStrategy_t& IndexStrategy,
 		     const ui32_t& PartitionSpace, const ui32_t& HeaderSize);
   Result_t SetSourceStream(const std::string& label, const ASDCP::Rational& edit_rate);
-  Result_t WriteFrame(const ASDCP::FrameBuffer&, ASDCP::AESEncContext*, ASDCP::HMACContext*);
+  Result_t WriteFrame(const ASDCP::BaseFrameBuffer&, ASDCP::AESEncContext*, ASDCP::HMACContext*);
   Result_t Finalize();
 };
 
@@ -355,7 +355,7 @@ AS_02::ISXD::MXFWriter::h__Writer::SetSourceStream(const std::string& label, con
 // error occurs.
 //
 Result_t
-AS_02::ISXD::MXFWriter::h__Writer::WriteFrame(const ASDCP::FrameBuffer& FrameBuf,
+AS_02::ISXD::MXFWriter::h__Writer::WriteFrame(const ASDCP::BaseFrameBuffer& FrameBuf,
 					      AESEncContext* Ctx, HMACContext* HMAC)
 {
   if ( FrameBuf.Size() == 0 )
@@ -471,7 +471,7 @@ AS_02::ISXD::MXFWriter::OpenWrite(const std::string& filename, const ASDCP::Writ
 // Fails if the file is not open, is finalized, or an operating system
 // error occurs.
 Result_t 
-AS_02::ISXD::MXFWriter::WriteFrame(const ASDCP::FrameBuffer& FrameBuf, AESEncContext* Ctx, HMACContext* HMAC)
+AS_02::ISXD::MXFWriter::WriteFrame(const ASDCP::BaseFrameBuffer& FrameBuf, AESEncContext* Ctx, HMACContext* HMAC)
 {
   if ( m_Writer.empty() )
     return RESULT_INIT;
@@ -480,7 +480,7 @@ AS_02::ISXD::MXFWriter::WriteFrame(const ASDCP::FrameBuffer& FrameBuf, AESEncCon
 }
 
 Result_t 
-AS_02::ISXD::MXFWriter::AddDmsGenericPartUtf8Text(const ASDCP::FrameBuffer& FrameBuf, ASDCP::AESEncContext* Ctx,
+AS_02::ISXD::MXFWriter::AddDmsGenericPartUtf8Text(const ASDCP::BaseFrameBuffer& FrameBuf, ASDCP::AESEncContext* Ctx,
 						  ASDCP::HMACContext* HMAC)
 {
   if ( m_Writer.empty() )

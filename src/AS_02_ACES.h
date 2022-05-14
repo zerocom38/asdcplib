@@ -297,7 +297,7 @@ static byte_t  s_asset_id_prefix[NS_ID_LENGTH] =
 AS_02::Result_t CreateTargetFrameAssetId(Kumu::UUID& rID, const std::string& target_frame_file);
 static Kumu::UUID create_4122_type5_id(const byte_t* subject_name, Kumu::fsize_t size, const byte_t* ns_id);
 
-class FrameBuffer : public ASDCP::FrameBuffer
+class FrameBuffer : public ASDCP::BaseFrameBuffer
 {
 public:
   FrameBuffer() {}

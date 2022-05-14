@@ -166,7 +166,7 @@ ASDCP::MXF::IndexTableSegment::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ASDCP::MXF::IndexTableSegment::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ASDCP::MXF::IndexTableSegment::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }

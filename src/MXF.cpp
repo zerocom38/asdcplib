@@ -145,7 +145,7 @@ ASDCP::Result_t
 ASDCP::MXF::RIP::WriteToFile(Kumu::FileWriter& Writer)
 {
   assert(m_Dict);
-  ASDCP::FrameBuffer Buffer;
+  ASDCP::BaseFrameBuffer Buffer;
   ui32_t RIPSize = ( PairArray.size() * (sizeof(ui32_t) + sizeof(ui64_t)) ) + 4;
   Result_t result = Buffer.Capacity(RIPSize);
 
@@ -334,7 +334,7 @@ ASDCP::MXF::Partition::InitFromBuffer(const byte_t* p, ui32_t l)
 ASDCP::Result_t
 ASDCP::MXF::Partition::WriteToFile(Kumu::FileWriter& Writer, UL& PartitionLabel)
 {
-  ASDCP::FrameBuffer Buffer;
+  ASDCP::BaseFrameBuffer Buffer;
   Result_t result = Buffer.Capacity(1024);
 
   if ( ASDCP_SUCCESS(result) )
@@ -479,7 +479,7 @@ ASDCP::MXF::Primer::InitFromBuffer(const byte_t* p, ui32_t l)
 ASDCP::Result_t
 ASDCP::MXF::Primer::WriteToFile(Kumu::FileWriter& Writer)
 {
-  ASDCP::FrameBuffer Buffer;
+  ASDCP::BaseFrameBuffer Buffer;
   Result_t result = Buffer.Capacity(128*1024);
 
   if ( ASDCP_SUCCESS(result) )
@@ -493,10 +493,10 @@ ASDCP::MXF::Primer::WriteToFile(Kumu::FileWriter& Writer)
 
 //
 ASDCP::Result_t
-ASDCP::MXF::Primer::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ASDCP::MXF::Primer::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   assert(m_Dict);
-  ASDCP::FrameBuffer LocalTagBuffer;
+  ASDCP::BaseFrameBuffer LocalTagBuffer;
   Kumu::MemIOWriter MemWRT(Buffer.Data() + kl_length, Buffer.Capacity() - kl_length);
   Result_t result = LocalTagEntryBatch.Archive(&MemWRT) ? RESULT_OK : RESULT_KLV_CODING(__LINE__, __FILE__);
 
@@ -698,7 +698,7 @@ ASDCP::MXF::Preface::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ASDCP::MXF::Preface::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ASDCP::MXF::Preface::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   return InterchangeObject::WriteToBuffer(Buffer);
 }
@@ -948,7 +948,7 @@ ASDCP::MXF::OP1aHeader::WriteToFile(Kumu::FileWriter& Writer, ui32_t HeaderSize)
       return RESULT_PARAM;
     }
 
-  ASDCP::FrameBuffer HeaderBuffer;
+  ASDCP::BaseFrameBuffer HeaderBuffer;
   HeaderByteCount = HeaderSize - ArchiveSize();
   assert (HeaderByteCount <= 0xFFFFFFFFL);
   Result_t result = HeaderBuffer.Capacity((ui32_t) HeaderByteCount); 
@@ -960,7 +960,7 @@ ASDCP::MXF::OP1aHeader::WriteToFile(Kumu::FileWriter& Writer, ui32_t HeaderSize)
       InterchangeObject* object = *pl_i;
       object->m_Lookup = &m_Primer;
 
-      ASDCP::FrameBuffer WriteWrapper;
+      ASDCP::BaseFrameBuffer WriteWrapper;
       WriteWrapper.SetData(HeaderBuffer.Data() + HeaderBuffer.Size(),
 			   HeaderBuffer.Capacity() - HeaderBuffer.Size());
       result = object->WriteToBuffer(WriteWrapper);
@@ -997,7 +997,7 @@ ASDCP::MXF::OP1aHeader::WriteToFile(Kumu::FileWriter& Writer, ui32_t HeaderSize)
 	  return RESULT_FAIL;
 	}
 
-      ASDCP::FrameBuffer NilBuf;
+      ASDCP::BaseFrameBuffer NilBuf;
       ui32_t klv_fill_length = HeaderSize - (ui32_t)pos;
 
       if ( klv_fill_length < kl_length )
@@ -1156,7 +1156,7 @@ ASDCP::Result_t
 ASDCP::MXF::OPAtomIndexFooter::WriteToFile(Kumu::FileWriter& Writer, ui64_t duration)
 {
   assert(m_Dict);
-  ASDCP::FrameBuffer FooterBuffer;
+  ASDCP::BaseFrameBuffer FooterBuffer;
   ui32_t   footer_size = m_PacketList->m_List.size() * MaxIndexSegmentSize; // segment-count * max-segment-size
   Result_t result = FooterBuffer.Capacity(footer_size); 
   ui32_t   iseg_count = 0;
@@ -1187,7 +1187,7 @@ ASDCP::MXF::OPAtomIndexFooter::WriteToFile(Kumu::FileWriter& Writer, ui64_t dura
       InterchangeObject* object = *pl_i;
       object->m_Lookup = m_Lookup;
 
-      ASDCP::FrameBuffer WriteWrapper;
+      ASDCP::BaseFrameBuffer WriteWrapper;
       WriteWrapper.SetData(FooterBuffer.Data() + FooterBuffer.Size(),
 			   FooterBuffer.Capacity() - FooterBuffer.Size());
       result = object->WriteToBuffer(WriteWrapper);
@@ -1463,7 +1463,7 @@ ASDCP::MXF::InterchangeObject::InitFromBuffer(const byte_t* p, ui32_t l)
 
 //
 ASDCP::Result_t
-ASDCP::MXF::InterchangeObject::WriteToBuffer(ASDCP::FrameBuffer& Buffer)
+ASDCP::MXF::InterchangeObject::WriteToBuffer(ASDCP::BaseFrameBuffer& Buffer)
 {
   if ( ! m_UL.HasValue() )
     return RESULT_STATE;

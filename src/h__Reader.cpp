@@ -158,7 +158,7 @@ ASDCP::h__ASDCPReader::OpenMXFRead(const std::string& filename)
 
 // AS-DCP method of reading a plaintext or encrypted frame
 Result_t
-ASDCP::h__ASDCPReader::ReadEKLVFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+ASDCP::h__ASDCPReader::ReadEKLVFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 				     const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 {
   return ASDCP::MXF::TrackFileReader<OP1aHeader, OPAtomIndexFooter>::ReadEKLVFrame(m_HeaderPart.BodyOffset, FrameNum, FrameBuf,
@@ -241,8 +241,8 @@ ASDCP::KLReader::ReadKLFromFile(Kumu::IFileReader& Reader)
 // base subroutine for reading a KLV packet, assumes file position is at the first byte of the packet
 Result_t
 ASDCP::Read_EKLV_Packet(Kumu::IFileReader& File, const ASDCP::Dictionary& Dict,
-			const ASDCP::WriterInfo& Info, Kumu::fpos_t& LastPosition, ASDCP::FrameBuffer& CtFrameBuf,
-			ui32_t FrameNum, ui32_t SequenceNum, ASDCP::FrameBuffer& FrameBuf,
+			const ASDCP::WriterInfo& Info, Kumu::fpos_t& LastPosition, ASDCP::BaseFrameBuffer& CtFrameBuf,
+			ui32_t FrameNum, ui32_t SequenceNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 {
   KLReader Reader;

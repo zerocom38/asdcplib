@@ -70,7 +70,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -94,7 +94,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -119,7 +119,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -167,7 +167,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -190,7 +190,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -236,7 +236,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -260,7 +260,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -305,7 +305,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -330,7 +330,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -355,7 +355,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -404,7 +404,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -436,7 +436,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -462,7 +462,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -519,7 +519,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -547,7 +547,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -586,7 +586,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -618,7 +618,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -650,7 +650,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -677,7 +677,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -700,7 +700,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -727,7 +727,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -750,7 +750,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -773,7 +773,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -796,7 +796,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -825,7 +825,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -850,7 +850,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -872,7 +872,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -894,7 +894,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -917,7 +917,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -953,7 +953,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -976,7 +976,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -999,7 +999,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1021,7 +1021,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1043,7 +1043,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1065,7 +1065,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1092,7 +1092,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1119,7 +1119,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1151,7 +1151,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1174,7 +1174,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1200,7 +1200,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1223,7 +1223,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1246,7 +1246,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1271,7 +1271,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1294,7 +1294,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1316,7 +1316,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1338,7 +1338,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
       //
@@ -1369,7 +1369,7 @@ namespace ASDCP
       virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
       virtual void     Dump(FILE* = 0);
       virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-      virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+      virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	};
 
     } // namespace MXF

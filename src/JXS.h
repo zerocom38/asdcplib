@@ -248,7 +248,7 @@ namespace ASDCP
 		}
 
 	  //
-	  class FrameBuffer : public ASDCP::FrameBuffer
+	  class FrameBuffer : public ASDCP::BaseFrameBuffer
 	  {
 	  public:
 		  FrameBuffer() {}

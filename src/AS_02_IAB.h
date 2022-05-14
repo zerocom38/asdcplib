@@ -131,7 +131,7 @@ namespace AS_02 {
        * @return RESULT_OK indicates that the frame is written and additional frames can be written, 
        * otherwise the reader is reset and the file is left is an undermined state.
        */
-      Result_t WriteFrame(const ASDCP::FrameBuffer& frame);
+      Result_t WriteFrame(const ASDCP::BaseFrameBuffer& frame);
 
       /**
        * Writes an XML text document to the MXF file as per RP 2057. If the
@@ -139,7 +139,7 @@ namespace AS_02 {
        * prior to writing. Fails if the file is not open, is finalized, or an
        * operating system error occurs.
        */
-      Result_t AddDmsGenericPartUtf8Text(const ASDCP::FrameBuffer& frame_buffer, ASDCP::AESEncContext* enc = 0, ASDCP::HMACContext* hmac = 0,
+      Result_t AddDmsGenericPartUtf8Text(const ASDCP::BaseFrameBuffer& frame_buffer, ASDCP::AESEncContext* enc = 0, ASDCP::HMACContext* hmac = 0,
                                          const std::string& trackDescription = "Descriptive Track", const std::string& dataDescription = "");
 
       /**
@@ -161,7 +161,7 @@ namespace AS_02 {
       class h__Reader;
       ASDCP::mem_ptr<h__Reader> m_Reader;
 
-      ASDCP::FrameBuffer m_FrameBuffer;
+      ASDCP::BaseFrameBuffer m_FrameBuffer;
 
       const Kumu::IFileReaderFactory& m_FileReaderFactory;
 
@@ -252,14 +252,14 @@ namespace AS_02 {
        * @return RESULT_OK indicates that more frames are ready to be read,
        * otherwise the file is closed and the reader reset
        */
-      Result_t ReadFrame(ui32_t frame_number, ASDCP::FrameBuffer& frame);
+      Result_t ReadFrame(ui32_t frame_number, ASDCP::BaseFrameBuffer& frame);
 
       /** Reads a Generic Stream Partition payload. Returns RESULT_INIT if the file is
        * not open, or RESULT_FORMAT if the SID is not present in the  RIP, or if the
        * actual partition at ByteOffset does not have a matching BodySID value.
        * Encryption is not currently supported.
        */
-      Result_t ReadGenericStreamPartitionPayload(ui32_t SID, ASDCP::FrameBuffer& FrameBuf);
+      Result_t ReadGenericStreamPartitionPayload(ui32_t SID, ASDCP::BaseFrameBuffer& FrameBuf);
 
       /**
        * Returns the number of IA Frame in the Track File.

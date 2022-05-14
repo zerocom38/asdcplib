@@ -298,7 +298,7 @@ ASDCP::EssenceType(const std::string& filename, EssenceType_t& type, const Kumu:
 
 //
 static bool
-string_is_xml(const ASDCP::FrameBuffer& buffer)
+string_is_xml(const ASDCP::BaseFrameBuffer& buffer)
 {
   return (strncmp((const char *)buffer.RoData(),             "<?xml", 5) == 0 ||
           strncmp((const char *)buffer.RoData(), "\xEF\xBB\xBF<?xml", 8) == 0); // Allow BOM
@@ -311,7 +311,7 @@ ASDCP::Result_t
 ASDCP::RawEssenceType(const std::string& filename, EssenceType_t& type)
 {
   type = ESS_UNKNOWN;
-  ASDCP::FrameBuffer FB;
+  ASDCP::BaseFrameBuffer FB;
   Kumu::FileReader Reader;
   ASDCP::Wav::SimpleWaveHeader WavHeader;
   ASDCP::RF64::SimpleRF64Header RF64Header;
@@ -473,7 +473,7 @@ ASDCP::RawEssenceType(const std::string& filename, EssenceType_t& type)
 
 //
 Result_t
-ASDCP::EncryptFrameBuffer(const ASDCP::FrameBuffer& FBin, ASDCP::FrameBuffer& FBout, AESEncContext* Ctx)
+ASDCP::EncryptFrameBuffer(const ASDCP::BaseFrameBuffer& FBin, ASDCP::BaseFrameBuffer& FBout, AESEncContext* Ctx)
 {
   ASDCP_TEST_NULL(Ctx);
   FBout.Size(0);
@@ -538,7 +538,7 @@ ASDCP::EncryptFrameBuffer(const ASDCP::FrameBuffer& FBin, ASDCP::FrameBuffer& FB
 
 //
 Result_t
-ASDCP::DecryptFrameBuffer(const ASDCP::FrameBuffer& FBin, ASDCP::FrameBuffer& FBout, AESDecContext* Ctx)
+ASDCP::DecryptFrameBuffer(const ASDCP::BaseFrameBuffer& FBin, ASDCP::BaseFrameBuffer& FBout, AESDecContext* Ctx)
 {
   ASDCP_TEST_NULL(Ctx);
   assert(FBout.Capacity() >= FBin.SourceLength());
@@ -602,7 +602,7 @@ ASDCP::DecryptFrameBuffer(const ASDCP::FrameBuffer& FBin, ASDCP::FrameBuffer& FB
 
 //
 Result_t
-ASDCP::IntegrityPack::CalcValues(const ASDCP::FrameBuffer& FB, const byte_t* AssetID,
+ASDCP::IntegrityPack::CalcValues(const ASDCP::BaseFrameBuffer& FB, const byte_t* AssetID,
 				 ui32_t sequence, HMACContext* HMAC)
 {
   ASDCP_TEST_NULL(AssetID);
@@ -652,7 +652,7 @@ ASDCP::IntegrityPack::CalcValues(const ASDCP::FrameBuffer& FB, const byte_t* Ass
 
 
 Result_t
-ASDCP::IntegrityPack::TestValues(const ASDCP::FrameBuffer& FB, const byte_t* AssetID,
+ASDCP::IntegrityPack::TestValues(const ASDCP::BaseFrameBuffer& FB, const byte_t* AssetID,
 				 ui32_t sequence, HMACContext* HMAC)
 {
   ASDCP_TEST_NULL(AssetID);

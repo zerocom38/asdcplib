@@ -231,7 +231,7 @@ namespace ASDCP
 	  virtual Result_t TagForKey(const ASDCP::UL& Key, ASDCP::TagValue& Tag);
 
           virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
-          virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+          virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	  virtual Result_t WriteToFile(Kumu::FileWriter& Writer);
 	  virtual void     Dump(FILE* = 0);
 	};
@@ -307,7 +307,7 @@ namespace ASDCP
           virtual Result_t InitFromTLVSet(TLVReader& TLVSet);
 	  virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
 	  virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
-	  virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+	  virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	  virtual bool     IsA(const byte_t* label);
 	  virtual const char* ObjectName() { return "InterchangeObject"; }
 	  virtual void     Dump(FILE* stream = 0);
@@ -344,7 +344,7 @@ namespace ASDCP
           virtual Result_t InitFromTLVSet(TLVReader& TLVSet);
 	  virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
 	  virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
-	  virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+	  virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	  virtual void     Dump(FILE* = 0);
 	};
 
@@ -421,7 +421,7 @@ namespace ASDCP
 	  virtual Result_t InitFromTLVSet(TLVReader& TLVSet);
 	  virtual Result_t InitFromBuffer(const byte_t* p, ui32_t l);
 	  virtual Result_t WriteToTLVSet(TLVWriter& TLVSet);
-	  virtual Result_t WriteToBuffer(ASDCP::FrameBuffer&);
+	  virtual Result_t WriteToBuffer(ASDCP::BaseFrameBuffer&);
 	  virtual void     Dump(FILE* = 0);
 	};
 

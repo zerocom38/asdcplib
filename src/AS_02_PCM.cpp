@@ -346,7 +346,7 @@ public:
   Result_t OpenWrite(const std::string&, ASDCP::MXF::FileDescriptor* essence_descriptor,
 		     ASDCP::MXF::InterchangeObject_list_t& essence_sub_descriptor_list, const ui32_t& header_size);
   Result_t SetSourceStream(const ASDCP::Rational&);
-  Result_t WriteFrame(const FrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
+  Result_t WriteFrame(const BaseFrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
   Result_t Finalize();
 };
 
@@ -439,7 +439,7 @@ AS_02::PCM::MXFWriter::h__Writer::SetSourceStream(const ASDCP::Rational& edit_ra
 //
 //
 ASDCP::Result_t
-AS_02::PCM::MXFWriter::h__Writer::WriteFrame(const FrameBuffer& frame_buf, AESEncContext* Ctx,
+AS_02::PCM::MXFWriter::h__Writer::WriteFrame(const BaseFrameBuffer& frame_buf, AESEncContext* Ctx,
 					     HMACContext* HMAC)
 {
   if ( frame_buf.Size() == 0 )
@@ -577,7 +577,7 @@ AS_02::PCM::MXFWriter::OpenWrite(const std::string& filename, const WriterInfo& 
 // Fails if the file is not open, is finalized, or an operating system
 // error occurs.
 ASDCP::Result_t
-AS_02::PCM::MXFWriter::WriteFrame(const FrameBuffer& FrameBuf, AESEncContext* Ctx, HMACContext* HMAC)
+AS_02::PCM::MXFWriter::WriteFrame(const BaseFrameBuffer& FrameBuf, AESEncContext* Ctx, HMACContext* HMAC)
 {
   if ( m_Writer.empty() )
     return RESULT_INIT;

@@ -880,7 +880,7 @@ read_isxd_file(CommandOptions& Options, const Kumu::IFileReaderFactory& fileRead
   AESDecContext*     Context = 0;
   HMACContext*       HMAC = 0;
   AS_02::ISXD::MXFReader    Reader(fileReaderFactory);
-  ASDCP::FrameBuffer  FrameBuffer;
+  ASDCP::BaseFrameBuffer  FrameBuffer;
   ui32_t             frame_count = 0;
 
   Result_t result = Reader.OpenRead(Options.input_filename);
@@ -962,7 +962,7 @@ read_isxd_file(CommandOptions& Options, const Kumu::IFileReaderFactory& fileRead
 Result_t
 extract_generic_stream_partition_payload(const std::string& in_filename, const ui32_t sid, const std::string& out_filename, const Kumu::IFileReaderFactory& fileReaderFactory)
 {
-  ASDCP::FrameBuffer payload;
+  ASDCP::BaseFrameBuffer payload;
   AS_02::ISXD::MXFReader reader(fileReaderFactory);
 
   Result_t result = reader.OpenRead(in_filename);
@@ -992,7 +992,7 @@ Result_t read_iab_file(CommandOptions& Options, const Kumu::IFileReaderFactory& 
     AESDecContext*     Context = 0;
     HMACContext*       HMAC = 0;
     AS_02::IAB::MXFReader Reader(fileReaderFactory);
-    ASDCP::FrameBuffer   FrameBuffer;
+    ASDCP::BaseFrameBuffer   FrameBuffer;
 
     ui32_t last_frame = 0;
     ASDCP::MXF::IABEssenceDescriptor *iab_descriptor = 0;

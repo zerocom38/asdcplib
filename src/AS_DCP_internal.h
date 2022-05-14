@@ -147,8 +147,8 @@ extern MXF::RIP *g_RIP;
   Result_t MD_to_WriterInfo(MXF::Identification*, WriterInfo&);
   Result_t MD_to_CryptoInfo(MXF::CryptographicContext*, WriterInfo&, const Dictionary&);
 
-  Result_t EncryptFrameBuffer(const ASDCP::FrameBuffer&, ASDCP::FrameBuffer&, AESEncContext*);
-  Result_t DecryptFrameBuffer(const ASDCP::FrameBuffer&, ASDCP::FrameBuffer&, AESDecContext*);
+  Result_t EncryptFrameBuffer(const ASDCP::BaseFrameBuffer&, ASDCP::BaseFrameBuffer&, AESEncContext*);
+  Result_t DecryptFrameBuffer(const ASDCP::BaseFrameBuffer&, ASDCP::BaseFrameBuffer&, AESDecContext*);
 
   Result_t MD_to_JP2K_PDesc(const ASDCP::MXF::GenericPictureEssenceDescriptor&  EssenceDescriptor,
 			    const ASDCP::MXF::JPEG2000PictureSubDescriptor& EssenceSubDescriptor,
@@ -172,16 +172,16 @@ extern MXF::RIP *g_RIP;
 
   //
   Result_t WriteGenericStreamPartition(Kumu::FileWriter&, ASDCP::MXF::OP1aHeader&, ASDCP::MXF::RIP&, const Dictionary*,
-				       const ASDCP::FrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
+				       const ASDCP::BaseFrameBuffer&, ASDCP::AESEncContext* = 0, ASDCP::HMACContext* = 0);
   
   Result_t Read_EKLV_Packet(Kumu::IFileReader& File, const ASDCP::Dictionary& Dict,
-			    const ASDCP::WriterInfo& Info, Kumu::fpos_t& LastPosition, ASDCP::FrameBuffer& CtFrameBuf,
-			    ui32_t FrameNum, ui32_t SequenceNum, ASDCP::FrameBuffer& FrameBuf,
+			    const ASDCP::WriterInfo& Info, Kumu::fpos_t& LastPosition, ASDCP::BaseFrameBuffer& CtFrameBuf,
+			    ui32_t FrameNum, ui32_t SequenceNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			    const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC);
 
   Result_t Write_EKLV_Packet(Kumu::FileWriter& File, const ASDCP::Dictionary& Dict, const MXF::OP1aHeader& HeaderPart,
-			     const ASDCP::WriterInfo& Info, ASDCP::FrameBuffer& CtFrameBuf, ui32_t& FramesWritten,
-			     ui64_t & StreamOffset, const ASDCP::FrameBuffer& FrameBuf, const byte_t* EssenceUL,
+			     const ASDCP::WriterInfo& Info, ASDCP::BaseFrameBuffer& CtFrameBuf, ui32_t& FramesWritten,
+			     ui64_t & StreamOffset, const ASDCP::BaseFrameBuffer& FrameBuf, const byte_t* EssenceUL,
 			     const ui32_t& MinEssenceElementBerLength,
 			     AESEncContext* Ctx, HMACContext* HMAC);
 
@@ -222,7 +222,7 @@ extern MXF::RIP *g_RIP;
 	IndexAccessType    m_IndexAccess;
 	RIP                m_RIP;
 	WriterInfo         m_Info;
-	ASDCP::FrameBuffer m_CtFrameBuf;
+	ASDCP::BaseFrameBuffer m_CtFrameBuf;
 	Kumu::fpos_t       m_LastPosition;
 
       TrackFileReader(const Dictionary* d, const Kumu::IFileReaderFactory& fileReaderFactory) :
@@ -314,7 +314,7 @@ extern MXF::RIP *g_RIP;
 	// positions file before reading
 	// allows external control of index offset
 	Result_t ReadEKLVFrame(const ui64_t& body_offset,
-			       ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+			       ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			       const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 	{
 	  // look up frame index node
@@ -344,7 +344,7 @@ extern MXF::RIP *g_RIP;
 
 	// positions file before reading
 	// assumes "processed" index entries have absolute positions
-	Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+	Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			       const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 	{
 	  // look up frame index node
@@ -372,7 +372,7 @@ extern MXF::RIP *g_RIP;
 	}
 
 	// reads from current position
-	Result_t ReadEKLVPacket(ui32_t FrameNum, ui32_t SequenceNum, ASDCP::FrameBuffer& FrameBuf,
+	Result_t ReadEKLVPacket(ui32_t FrameNum, ui32_t SequenceNum, ASDCP::BaseFrameBuffer& FrameBuf,
 				const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 	{
 	  assert(m_Dict);
@@ -420,7 +420,7 @@ extern MXF::RIP *g_RIP;
 	// Reads a Generic Stream Partition payload. Returns RESULT_FORMAT if the SID is
 	// not present in the  RIP, or if the actual partition at ByteOffset does not have
 	// a matching BodySID value. Encryption is not currently supported.
-	Result_t ReadGenericStreamPartitionPayload(const ui32_t sid, ASDCP::FrameBuffer& frame_buf,
+	Result_t ReadGenericStreamPartitionPayload(const ui32_t sid, ASDCP::BaseFrameBuffer& frame_buf,
 						   AESDecContext* Ctx, HMACContext* HMAC)
 	{
 	  Kumu::fpos_t start_offset = 0, end_offset = 0;
@@ -619,7 +619,7 @@ extern MXF::RIP *g_RIP;
 
 	ui32_t             m_FramesWritten;
 	ui64_t             m_StreamOffset;
-	ASDCP::FrameBuffer m_CtFrameBuf;
+	ASDCP::BaseFrameBuffer m_CtFrameBuf;
 	h__WriterState     m_State;
 	WriterInfo         m_Info;
 
@@ -858,7 +858,7 @@ extern MXF::RIP *g_RIP;
 	  m_FilePackage->Descriptor = m_EssenceDescriptor->InstanceUID;
 	}
 
-	Result_t AddDmsGenericPartUtf8Text(const ASDCP::FrameBuffer& frame_buffer,
+	Result_t AddDmsGenericPartUtf8Text(const ASDCP::BaseFrameBuffer& frame_buffer,
 					   ASDCP::AESEncContext* enc = 0, ASDCP::HMACContext* hmac = 0, 
                        const std::string& trackDescription = "Descriptive Track",
                        const std::string& dataDescription = "")
@@ -937,7 +937,7 @@ extern MXF::RIP *g_RIP;
       virtual ~h__ASDCPReader();
 
       Result_t OpenMXFRead(const std::string& filename);
-      Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+      Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			     const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC);
       Result_t LocateFrame(ui32_t FrameNum, Kumu::fpos_t& streamOffset,
                            i8_t& temporalOffset, i8_t& keyFrameOffset);
@@ -963,7 +963,7 @@ extern MXF::RIP *g_RIP;
 				ui32_t TCFrameRate, ui32_t BytesPerEditUnit = 0);
 
       Result_t CreateBodyPart(const MXF::Rational& EditRate, ui32_t BytesPerEditUnit = 0);
-      Result_t WriteEKLVPacket(const ASDCP::FrameBuffer& FrameBuf,const byte_t* EssenceUL,
+      Result_t WriteEKLVPacket(const ASDCP::BaseFrameBuffer& FrameBuf,const byte_t* EssenceUL,
 			       const ui32_t& MinEssenceElementBerLength,
 			       AESEncContext* Ctx, HMACContext* HMAC);
       Result_t WriteASDCPFooter();
@@ -983,8 +983,8 @@ extern MXF::RIP *g_RIP;
 
       ~IntegrityPack() {}
 
-      Result_t CalcValues(const ASDCP::FrameBuffer&, const byte_t* AssetID, ui32_t sequence, HMACContext* HMAC);
-      Result_t TestValues(const ASDCP::FrameBuffer&, const byte_t* AssetID, ui32_t sequence, HMACContext* HMAC);
+      Result_t CalcValues(const ASDCP::BaseFrameBuffer&, const byte_t* AssetID, ui32_t sequence, HMACContext* HMAC);
+      Result_t TestValues(const ASDCP::BaseFrameBuffer&, const byte_t* AssetID, ui32_t sequence, HMACContext* HMAC);
     };
 
 

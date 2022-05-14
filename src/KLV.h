@@ -224,9 +224,9 @@ inline const char* ui64sz(ui64_t i, char* buf)
       virtual bool     HasUL(const byte_t*);
       virtual Result_t InitFromBuffer(const byte_t*, ui32_t);
       virtual Result_t InitFromBuffer(const byte_t*, ui32_t, const UL& label);
-      virtual Result_t WriteKLToBuffer(ASDCP::FrameBuffer&, const UL& label, ui32_t length);
+      virtual Result_t WriteKLToBuffer(ASDCP::BaseFrameBuffer&, const UL& label, ui32_t length);
 
-      virtual Result_t WriteKLToBuffer(ASDCP::FrameBuffer& fb, ui32_t length)
+      virtual Result_t WriteKLToBuffer(ASDCP::BaseFrameBuffer& fb, ui32_t length)
       {
 	if ( ! m_UL.HasValue() )
 	  {
@@ -245,7 +245,7 @@ inline const char* ui64sz(ui64_t i, char* buf)
       ASDCP_NO_COPY_CONSTRUCT(KLVFilePacket);
 
     public:
-      ASDCP::FrameBuffer m_Buffer;
+      ASDCP::BaseFrameBuffer m_Buffer;
 
       KLVFilePacket() {}
       virtual ~KLVFilePacket() {}

@@ -526,9 +526,9 @@ namespace ASDCP {
   // following class implements essence-neutral functionality for managing a buffer
   // containing a frame of essence.
 
-  class FrameBuffer
+  class BaseFrameBuffer
     {
-      ASDCP_NO_COPY_CONSTRUCT(FrameBuffer);
+      ASDCP_NO_COPY_CONSTRUCT(BaseFrameBuffer);
 
     protected:
       byte_t* m_Data;          // pointer to memory area containing frame data
@@ -549,8 +549,8 @@ namespace ASDCP {
       ui32_t  m_PlaintextOffset;    // offset to first byte of ciphertext
 
      public:
-      FrameBuffer();
-      virtual ~FrameBuffer();
+      BaseFrameBuffer();
+      virtual ~BaseFrameBuffer();
 
       // Instructs the object to use an externally allocated buffer. The external
       // buffer will not be cleaned up by the frame buffer when it exits.
@@ -664,7 +664,7 @@ namespace ASDCP {
       void VideoDescriptorDump(const VideoDescriptor&, FILE* = 0);
 
       // A container for MPEG frame data.
-      class FrameBuffer : public ASDCP::FrameBuffer
+      class FrameBuffer : public ASDCP::BaseFrameBuffer
 	{
 	  ASDCP_NO_COPY_CONSTRUCT(FrameBuffer); // TODO: should have copy construct
 
@@ -920,7 +920,7 @@ namespace ASDCP {
 	}
 
       //
-      class FrameBuffer : public ASDCP::FrameBuffer
+      class FrameBuffer : public ASDCP::BaseFrameBuffer
 	{
 	public:
 	  FrameBuffer() {}
@@ -1155,7 +1155,7 @@ namespace ASDCP {
       void   PictureDescriptorDump(const PictureDescriptor&, FILE* = 0);
 
       //
-      class FrameBuffer : public ASDCP::FrameBuffer
+      class FrameBuffer : public ASDCP::BaseFrameBuffer
 	{
 	public:
 	  FrameBuffer() {}
@@ -1488,7 +1488,7 @@ namespace ASDCP {
       void   DescriptorDump(const TimedTextDescriptor&, FILE* = 0);
 
       //
-      class FrameBuffer : public ASDCP::FrameBuffer
+      class FrameBuffer : public ASDCP::BaseFrameBuffer
       {
 	ASDCP_NO_COPY_CONSTRUCT(FrameBuffer); // TODO: should have copy construct
 
@@ -1695,7 +1695,7 @@ namespace ASDCP {
     void DCDataDescriptorDump(const DCDataDescriptor&, FILE* = 0);
 
     //
-    class FrameBuffer : public ASDCP::FrameBuffer
+    class FrameBuffer : public ASDCP::BaseFrameBuffer
 	{
      public:
 	  FrameBuffer() {}

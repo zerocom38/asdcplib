@@ -485,7 +485,7 @@ AS_02::h__AS02Reader::OpenMXFRead(const std::string& filename)
 
 // AS-DCP method of reading a plaintext or encrypted frame
 Result_t
-AS_02::h__AS02Reader::ReadEKLVFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+AS_02::h__AS02Reader::ReadEKLVFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 				     const byte_t* EssenceUL, AESDecContext* Ctx, HMACContext* HMAC)
 {
   return ASDCP::MXF::TrackFileReader<OP1aHeader, AS_02::MXF::AS02IndexReader>::ReadEKLVFrame(FrameNum, FrameBuf, EssenceUL, Ctx, HMAC);

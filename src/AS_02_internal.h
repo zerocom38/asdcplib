@@ -67,13 +67,13 @@ namespace AS_02
       Result_t OpenMXFRead(const std::string& filename);
 
       // USE FRAME WRAPPING...
-      Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::FrameBuffer& FrameBuf,
+      Result_t ReadEKLVFrame(ui32_t FrameNum, ASDCP::BaseFrameBuffer& FrameBuf,
 			     const byte_t* EssenceUL, ASDCP::AESDecContext* Ctx, ASDCP::HMACContext* HMAC);
 
      // OR CLIP WRAPPING...
       // clip wrapping is handled directly by the essence-specific classes
       //      Result_t ReadyClip(const ui32_t& FrameNum, const byte_t* EssenceUL, ASDCP::AESDecContext* Ctx, ASDCP::HMACContext* HMAC, ui64_t& position);
-      ///      Result_t ReadClipBlock(ASDCP::FrameBuffer& FrameBuf, const ui32_t& read_size);
+      ///      Result_t ReadClipBlock(ASDCP::BaseFrameBuffer& FrameBuf, const ui32_t& read_size);
 
       // NOT BOTH!
     };
@@ -313,7 +313,7 @@ namespace AS_02
       h__AS02WriterFrame(const Dictionary*);
       virtual ~h__AS02WriterFrame();
 
-      Result_t WriteEKLVPacket(const ASDCP::FrameBuffer& FrameBuf,const byte_t* EssenceUL,
+      Result_t WriteEKLVPacket(const ASDCP::BaseFrameBuffer& FrameBuf,const byte_t* EssenceUL,
 			       const ui32_t& MinEssenceElementBerLength,
 			       AESEncContext* Ctx, HMACContext* HMAC);
     };
@@ -359,7 +359,7 @@ namespace AS_02
             assert(check);
             return h__AS02Writer<IndexWriterType>::m_File.Write(clip_buffer, 24);
         }
-        Result_t WriteClipBlock(const ASDCP::FrameBuffer& FrameBuf)
+        Result_t WriteClipBlock(const ASDCP::BaseFrameBuffer& FrameBuf)
         {
             if (m_ClipStart == 0)
             {

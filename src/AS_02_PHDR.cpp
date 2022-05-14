@@ -179,7 +179,7 @@ AS_02::PHDR::MXFReader::h__Reader::OpenRead(const std::string& filename, std::st
 	  // read the generic stream packet
 	  if ( KM_SUCCESS(result) )
 	    {
-	      ASDCP::FrameBuffer tmp_buf;
+	      ASDCP::BaseFrameBuffer tmp_buf;
 	      tmp_buf.Capacity(Kumu::Megabyte);
 
 	      result = Read_EKLV_Packet(*m_File, *m_Dict, m_Info, m_LastPosition, m_CtFrameBuf,
@@ -210,7 +210,7 @@ AS_02::PHDR::MXFReader::h__Reader::ReadFrame(ui32_t FrameNum, AS_02::PHDR::Frame
 
   if ( KM_SUCCESS(result) )
     {
-      ASDCP::FrameBuffer tmp_metadata_buffer;
+      ASDCP::BaseFrameBuffer tmp_metadata_buffer;
       tmp_metadata_buffer.Capacity(8192);
 
       result = Read_EKLV_Packet(*m_File, *m_Dict, m_Info, m_LastPosition, m_CtFrameBuf,
@@ -574,7 +574,7 @@ AS_02::PHDR::MXFWriter::h__Writer::WriteFrame(const AS_02::PHDR::FrameBuffer& Fr
       
       if ( KM_SUCCESS(result) )
 	{
-	  ASDCP::FrameBuffer metadata_buffer_wrapper;
+	  ASDCP::BaseFrameBuffer metadata_buffer_wrapper;
 	  metadata_buffer_wrapper.SetData((byte_t*)(FrameBuf.OpaqueMetadata.c_str()), FrameBuf.OpaqueMetadata.size());
 	  metadata_buffer_wrapper.Size(FrameBuf.OpaqueMetadata.size());
 	  
@@ -661,7 +661,7 @@ AS_02::PHDR::MXFWriter::h__Writer::Finalize(const std::string& PHDR_master_metad
 
 	  if ( KM_SUCCESS(result) )
 	    {
-	      ASDCP::FrameBuffer tmp_buf;
+	      ASDCP::BaseFrameBuffer tmp_buf;
 	      tmp_buf.SetData((byte_t*)PHDR_master_metadata.c_str(), PHDR_master_metadata.size());
 	      tmp_buf.Size(PHDR_master_metadata.size());
 

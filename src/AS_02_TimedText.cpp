@@ -511,7 +511,7 @@ ASDCP::Result_t
 AS_02::TimedText::MXFWriter::h__Writer::WriteTimedTextResource(const std::string& XMLDoc,
 							       ASDCP::AESEncContext* Ctx, ASDCP::HMACContext* HMAC)
 {
-  ASDCP::FrameBuffer segment_buffer;
+  ASDCP::BaseFrameBuffer segment_buffer;
   IndexTableSegment::IndexEntry index_entry;
   Result_t result = m_State.Goto_RUNNING();
 

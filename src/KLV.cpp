@@ -137,7 +137,7 @@ ASDCP::KLVPacket::HasUL(const byte_t* ul)
 
 //
 ASDCP::Result_t
-ASDCP::KLVPacket::WriteKLToBuffer(ASDCP::FrameBuffer& Buffer, const UL& label, ui32_t length)
+ASDCP::KLVPacket::WriteKLToBuffer(ASDCP::BaseFrameBuffer& Buffer, const UL& label, ui32_t length)
 {
   assert(label.HasValue());
 

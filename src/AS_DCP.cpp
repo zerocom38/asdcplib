@@ -83,13 +83,13 @@ ASDCP::DecodeRational(const char* str_rational, Rational& rational)
 //
 // frame buffer base class implementation
 
-ASDCP::FrameBuffer::FrameBuffer() :
+ASDCP::BaseFrameBuffer::BaseFrameBuffer() :
   m_Data(0), m_Capacity(0), m_OwnMem(false), m_Size(0),
   m_FrameNumber(0), m_SourceLength(0), m_PlaintextOffset(0)
 {
 }
 
-ASDCP::FrameBuffer::~FrameBuffer()
+ASDCP::BaseFrameBuffer::~BaseFrameBuffer()
 {
   if ( m_OwnMem && m_Data != 0 )
     free(m_Data);
@@ -101,7 +101,7 @@ ASDCP::FrameBuffer::~FrameBuffer()
 // Returns error if the buf_addr argument is NULL and either buf_size is
 // non-zero or internally allocated memory is in use.
 ASDCP::Result_t
-ASDCP::FrameBuffer::SetData(byte_t* buf_addr, ui32_t buf_size)
+ASDCP::BaseFrameBuffer::SetData(byte_t* buf_addr, ui32_t buf_size)
 {
   // if buf_addr is null and we have an external memory reference,
   // drop the reference and place the object in the initialized-
@@ -132,7 +132,7 @@ ASDCP::FrameBuffer::SetData(byte_t* buf_addr, ui32_t buf_size)
 // if the object is using an externally allocated buffer via SetData();
 // Resets content size to zero.
 ASDCP::Result_t
-ASDCP::FrameBuffer::Capacity(ui32_t cap_size)
+ASDCP::BaseFrameBuffer::Capacity(ui32_t cap_size)
 {
   if ( ! m_OwnMem && m_Data != 0 )
     return RESULT_CAPEXTMEM; // cannot resize external memory

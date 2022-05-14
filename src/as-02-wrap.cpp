@@ -1940,7 +1940,7 @@ write_isxd_file(CommandOptions& Options)
   
   if ( KM_SUCCESS(result) && ! Options.no_write_flag )
     {
-      ASDCP::FrameBuffer global_metadata;
+      ASDCP::BaseFrameBuffer global_metadata;
       std::list<std::string>::iterator i;
       
       for ( i = Options.global_isxd_metadata.begin(); i != Options.global_isxd_metadata.end(); ++i )
